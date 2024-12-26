@@ -27,5 +27,24 @@
             <p>Our platform helps customers conveniently calculate gratuity based on their bill, choose a tip percentage, and even leave feedback about their service. We aim to provide a seamless user experience, giving both diners and waitstaff a better dining interaction.</p>
         </section>
 
+
+        <!-- Select Restaurant Section -->
+        <section id="select-restaurant">
+            <h2>Select Your Restaurant</h2>
+            <label for="restaurant">Restaurant:</label>
+            <select id="restaurant" onchange="displayRestaurantInfo()">
+                <option value="">--Select Restaurant--</option>
+                <option value="restaurant1">Restaurant 1</option>
+                <option value="restaurant2">Restaurant 2</option>
+                <option value="restaurant3">Restaurant 3</option>
+                <option value="restaurant4">Restaurant 4</option>
+            </select>
+
+            <div id="restaurantInfo" style="margin-top: 20px; font-weight: bold;"></div>
+
+            <p>Select a restaurant to proceed with gratuity calculations for your dining experience.</p>
+        </section>
+        
+        
 </body>
 </html>
