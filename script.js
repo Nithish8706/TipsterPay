@@ -55,3 +55,22 @@ function processOnlinePayment() {
     document.getElementById("paymentForm").style.display = "none";
     document.getElementById("result").innerHTML += "<br>Payment Status: Successful!";
 }
+function submitFeedback() {
+    const waiterName = document.getElementById("waiterName").value;
+    const serviceRating = document.getElementById("serviceRating").value;
+    const comments = document.getElementById("comments").value;
+
+    if (!serviceRating || serviceRating < 1 || serviceRating > 5) {
+        alert("Please provide a valid rating between 1 and 5.");
+        return;
+    }
+
+    document.getElementById("feedbackResult").innerHTML = `
+        Thank you for your feedback!<br>
+        Waiter: ${waiterName || "N/A"}<br>
+        Rating: ${serviceRating}/5<br>
+        Comments: ${comments}
+    `;
+
+    document.getElementById("feedbackForm").reset();
+}
