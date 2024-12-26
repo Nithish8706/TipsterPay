@@ -50,3 +50,8 @@ function calculateGratuity() {
     document.getElementById("result").innerHTML = `Tip Amount: ₹${tipAmount.toFixed(2)}<br>Total Amount: ₹${totalAmount.toFixed(2)}`
     document.getElementById("paymentForm").style.display = "block";
 }
+function processOnlinePayment() {
+    alert("Online payment completed successfully! Thank you for your tip.");
+    document.getElementById("paymentForm").style.display = "none";
+    document.getElementById("result").innerHTML += "<br>Payment Status: Successful!";
+}
