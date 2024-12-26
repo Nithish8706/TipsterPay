@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TipsterPay</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to CSS -->
+    <link rel="stylesheet" href="styles.css"> 
 </head>
 <body>
     <div id="content-overlay">
@@ -44,7 +44,30 @@
 
             <p>Select a restaurant to proceed with gratuity calculations for your dining experience.</p>
         </section>
+
+        <!-- Tip Calculator Section -->
+        <section id="tip-calculator">
+            <h2>Tip Calculator</h2>
+            <label for="billAmount">Bill Amount:</label>
+            <input type="number" id="billAmount" placeholder="Bill amount will appear here" readonly>
+
+            <label for="tipPercentage">Tip Percentage (%):</label>
+            <input type="number" id="tipPercentage" value="15" required>
+
+            <button onclick="calculateGratuity()">Calculate Tip</button>
+
+            <div id="result"></div>
+
+            <div id="paymentForm" style="display: none; margin-top: 20px;">
+                <h3>Proceed to Online Payment</h3>
+                <p>Your gratuity has been calculated! Please click "Pay Now" to proceed with the payment.</p>
+                <button onclick="processOnlinePayment()">Pay Now</button>
+            </div>
+
+            <p>Use this calculator to calculate the tip based on your bill amount and desired percentage. You can also pay the gratuity online directly through this platform.</p>
+        </section>
+
         
-        
+        <script src="script.js"></script>
 </body>
 </html>
