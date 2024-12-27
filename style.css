@@ -1,3 +1,4 @@
+/* General Styles */
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
@@ -9,42 +10,78 @@ body {
 #content-overlay {
     background: #1f1f1f;
     min-height: 100vh;
-    border-radius: 15px;
     padding: 10px;
+    border-radius: 15px;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.8);
 }
 
+h1, h2 {
+    text-align: center;
+    color: #f2a365;
+}
+
+/* Navigation */
 nav {
     background: #3a3a3a;
     color: white;
-    padding: 15px 0;
-    text-align: center;
+    padding: 10px 20px;
     position: sticky;
     top: 0;
     z-index: 100;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
-nav ul {
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    height: 40px;
+    max-width: 100%;
+}
+
+.nav-links {
     list-style: none;
     padding: 0;
     margin: 0;
     display: flex;
-    justify-content: center;
+    gap: 15px;
+    transition: all 0.3s ease;
 }
 
-nav li {
-    margin: 0 15px;
+.nav-links li {
+    margin: 0;
 }
 
-nav a:hover {
+.nav-links a {
+    text-decoration: none;
+    color: #f2a365;
+    padding: 10px 15px;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
     background-color: #4a4a4a;
     transform: scale(1.1);
 }
 
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #f2a365;
+    cursor: pointer;
+}
+
+/* Section Styles */
 section {
-    padding: 40px 20px;
-    width: 100%;
+    padding: 20px;
     margin: 20px 0;
     background: linear-gradient(to bottom right, #3a3a3a, #2c2c2c);
     color: #e0e0e0;
@@ -52,72 +89,115 @@ section {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
 }
 
-h1, h2 {
-    text-align: center;
-    color: #f2a365;
-    margin-bottom: 10px;
-    position: relative;
-}
-
-h2::after {
-    content: '';
-    display: block;
-    width: 60px;
-    height: 3px;
-    background-color: #f2a365;
-    margin: 8px auto 0;
-    border-radius: 2px;
-}
-
-label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: bold;
-    color: #fff;
-}
-
 input, textarea, select {
-    width: 50%;
-    padding: 12px;
+    width: 100%;
+    max-width: 400px;
+    padding: 10px;
     margin-bottom: 16px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    box-sizing: border-box;
     font-size: 16px;
-    transition: all 0.3s ease;
+    box-sizing: border-box;
 }
 
-textarea {
-    resize: vertical;
+/* Waiter Feedback Section */
+#feedback {
+width: 100%;
+    
+    margin: 20px auto;
+    padding: 20px;
+    background: linear-gradient(to bottom right, #3a3a3a, #2c2c2c);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    color: #e0e0e0;
 }
 
-input:focus, textarea:focus, select:focus {
-    border-color: #355c7d;
-    outline: none;
-    box-shadow: 0 0 10px rgba(53, 92, 125, 0.7);
+#feedback h2 {
+    text-align: center;
+    color: #f2a365;
+    margin-bottom: 15px;
 }
 
-button {
+#feedback label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+#feedback input, #feedback textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: #3a3a3a;
+    color: #e0e0e0;
+}
+
+#feedback button {
+    width: 40%;
+    padding: 10px;
+    font-size: 16px;
     background: #f2a365;
     border: none;
-    color: 1f1f1f;
-    padding: 12px 20px;
-    font-size: 16px;
     border-radius: 4px;
     cursor: pointer;
-    margin-top: 10px;
-    transition: all 0.3s ease;
+    color: #2c2c2c;
 }
 
-button:hover {
+#feedback button:hover {
     background: #d18b51;
-    transform: scale(1.05);
 }
 
-section h1, section h2, section p, section form {
-    padding: 0 20px;
+/* Tip Calculator Section */
+#tip-calculator {
+    width: 100%;
+    margin: 20px auto;
+    padding: 20px;
+    background: linear-gradient(to bottom right, #3a3a3a, #2c2c2c);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    color: #e0e0e0;
 }
 
+#tip-calculator h2 {
+    text-align: center;
+    color: #f2a365;
+    margin-bottom: 15px;
+}
+
+#tip-calculator label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+#tip-calculator input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: #3a3a3a;
+    color: #e0e0e0;
+}
+
+#tip-calculator button {
+    width: 40%;
+    padding: 10px;
+    font-size: 16px;
+    background: #f2a365;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #2c2c2c;
+}
+
+#tip-calculator button:hover {
+    background: #d18b51;
+}
+
+/* Footer */
 footer {
     text-align: center;
     padding: 20px;
@@ -137,3 +217,31 @@ footer a:hover {
     color: #f8b195;
 }
 
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+        display: none;
+    }
+
+    .nav-links.active {
+        display: flex;
+        background: #3a3a3a;
+        padding: 10px;
+        border-radius: 4px;
+    }
+
+    .hamburger {
+        display: block;
+    }
+}
+
+@media (max-width: 480px) {
+    section {
+        padding: 15px;
+    }
+
+    input, textarea, select {
+        font-size: 14px;
+    }
+}
