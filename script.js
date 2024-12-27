@@ -26,23 +26,23 @@ function displayTablePrice() {
     // Set pricing based on table selection
     switch (tableNumber) {
         case '1':
-            priceInfo = 'Price: ₹45.00';
-            waiterName = 'Waiter: Sarah';
+            priceInfo = 'Price: $45.00';
+            waiterName = 'Waiter: Ligith';
             break;
         case '2':
-            priceInfo = 'Price: ₹60.00';
-            waiterName = 'Waiter: John';
+            priceInfo = 'Price: $60.00';
+            waiterName = 'Waiter: Joshua';
             break;
         case '3':
-            priceInfo = 'Price: ₹75.00';
-            waiterName = 'Waiter: Emily';
+            priceInfo = 'Price: $75.00';
+            waiterName = 'Waiter: Mithun';
             break;
         case '4':
-            priceInfo = 'Price: ₹90.00';
-            waiterName = 'Waiter: Mark';
+            priceInfo = 'Price: $90.00';
+            waiterName = 'Waiter: Nithish';
             break;
         default:
-            priceInfo = 'Price: ₹0.00';
+            priceInfo = 'Price: $0.00';
             waiterName = 'Waiter: N/A';
             break;
     }
