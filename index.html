@@ -67,6 +67,46 @@
             <p>Use this calculator to calculate the tip based on your bill amount and desired percentage. You can also pay the gratuity online directly through this platform.</p>
         </section>
 
+        <!-- Waiter Feedback Section -->
+        <section id="feedback">
+            <h2>Waiter Feedback</h2>
+            <form id="feedbackForm">
+                <label for="waiterName">Waiter's Name (Optional):</label>
+                <input type="text" id="waiterName" placeholder="Enter waiter's name">
+
+                <label for="serviceRating">Rate the Service (1-5):</label>
+                <input type="number" id="serviceRating" min="1" max="5" placeholder="Rate 1 to 5" required>
+
+                <label for="comments">Comments:</label>
+                <textarea id="comments" rows="4" placeholder="Leave your feedback here..." required></textarea>
+
+                <button type="button" onclick="submitFeedback()">Submit Feedback</button>
+            </form>
+            <div id="feedbackResult" style="margin-top: 20px; font-weight: bold; color: #355c7d;"></div>
+
+            <p>Your feedback helps us improve our service. Please let us know how we did, and if you have any suggestions for us.</p>
+        </section>
+
+        <!-- About Tip Section -->
+        <section id="about">
+            <h2>About TipsterPay</h2>
+            <p>TipsterPay is a revolutionary platform designed to simplify, enhance, and modernize the tipping experience for restaurant patrons and service staff alike. Our goal is to create a seamless, efficient, and transparent process for gratuity calculations, so that both diners and waitstaff can focus more on enjoying the dining experience.</p>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <p>If you have any questions, feedback, or need support, feel free to reach out to us.</p>
+            <p>Email: <a href="mailto:example@email.com">example@email.com</a></p>
+            <p>Phone: +1 234 567 890</p>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2024 TipsterPay | <a href="#about">Learn More</a> | <a href="#contact">Contact Us</a>
+    </footer>
+
         
         <script src="script.js"></script>
 </body>
