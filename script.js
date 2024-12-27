@@ -1,76 +1,98 @@
-const restaurantInfo = {
-    "restaurant1": "Restaurant 1 offers a variety of Italian dishes and a cozy atmosphere.",
-    "restaurant2": "Restaurant 2 specializes in fresh seafood with an oceanfront view.",
-    "restaurant3": "Restaurant 3 is known for its authentic Asian fusion cuisine.",
-    "restaurant4": "Restaurant 4 provides a fine dining experience with a full wine list."
-};
+// Toggle Navigation Menu for Mobile View
+function toggleMenu() {
+    const navLinks = document.getElementById('nav-links');
+    navLinks.classList.toggle('active');
+}
 
+// Display Restaurant Information
 function displayRestaurantInfo() {
-    const restaurant = document.getElementById("restaurant").value;
-    const restaurantInfoDisplay = document.getElementById("restaurantInfo");
-
-    if (restaurant) {
-        restaurantInfoDisplay.innerHTML = restaurantInfo[restaurant];
+    const restaurantSelect = document.getElementById('restaurant');
+    const restaurantInfo = document.getElementById('restaurantInfo');
+    if (restaurantSelect.value) {
+        restaurantInfo.innerHTML = 'Selected Restaurant: ' + restaurantSelect.options[restaurantSelect.selectedIndex].text;
     } else {
-        restaurantInfoDisplay.innerHTML = '';
+        restaurantInfo.innerHTML = '';
     }
 }
 
-const tablePrices = {
-    "1": 500,
-    "2": 700,
-    "3": 600,
-    "4": 400
-};
-
+// Display Table Price Information
 function displayTablePrice() {
-    const tableNumber = document.getElementById("tableNumber").value;
-    const billAmountInput = document.getElementById("billAmount");
+    const tableSelect = document.getElementById('tableNumber');
+    const waiterNameDisplay = document.getElementById('waiterNameDisplay');
+    const tableNumber = tableSelect.value;
+    let priceInfo = '';
+    let waiterName = '';
 
-    if (tableNumber) {
-        const price = tablePrices[tableNumber];
-        billAmountInput.value = price;
-    } else {
-        billAmountInput.value = '';
+    // Set pricing based on table selection
+    switch (tableNumber) {
+        case '1':
+            priceInfo = 'Price: $45.00';
+            waiterName = 'Waiter: Sarah';
+            break;
+        case '2':
+            priceInfo = 'Price: $60.00';
+            waiterName = 'Waiter: John';
+            break;
+        case '3':
+            priceInfo = 'Price: $75.00';
+            waiterName = 'Waiter: Emily';
+            break;
+        case '4':
+            priceInfo = 'Price: $90.00';
+            waiterName = 'Waiter: Mark';
+            break;
+        default:
+            priceInfo = 'Price: $0.00';
+            waiterName = 'Waiter: N/A';
+            break;
     }
+
+    // Display the results
+    document.getElementById('billAmount').value = priceInfo.split('$')[1]; // Extract price from string
+    waiterNameDisplay.innerHTML = waiterName;
 }
 
+// Calculate Gratuity
 function calculateGratuity() {
-    const billAmount = parseFloat(document.getElementById("billAmount").value);
-    const tipPercentage = parseFloat(document.getElementById("tipPercentage").value);
+    const billAmount = parseFloat(document.getElementById('billAmount').value);
+    const tipPercentage = parseFloat(document.getElementById('tipPercentage').value);
+    const resultDiv = document.getElementById('result');
 
-    if (isNaN(billAmount) || isNaN(tipPercentage) || billAmount <= 0 || tipPercentage < 0) {
-        alert("Please enter valid positive numbers.");
+    if (isNaN(billAmount) || isNaN(tipPercentage)) {
+        resultDiv.innerHTML = 'Please enter valid numbers for both the bill amount and the tip percentage.';
         return;
     }
 
-    const tipAmount = (billAmount * tipPercentage) / 100;
-    const totalAmount = billAmount + tipAmount;
+    const gratuity = billAmount * (tipPercentage / 100);
+    const totalAmount = billAmount + gratuity;
 
-    document.getElementById("result").innerHTML = `Tip Amount: ₹${tipAmount.toFixed(2)}<br>Total Amount: ₹${totalAmount.toFixed(2)}`
-    document.getElementById("paymentForm").style.display = "block";
-}
-function processOnlinePayment() {
-    alert("Online payment completed successfully! Thank you for your tip.");
-    document.getElementById("paymentForm").style.display = "none";
-    document.getElementById("result").innerHTML += "<br>Payment Status: Successful!";
-}
-function submitFeedback() {
-    const waiterName = document.getElementById("waiterName").value;
-    const serviceRating = document.getElementById("serviceRating").value;
-    const comments = document.getElementById("comments").value;
-
-    if (!serviceRating || serviceRating < 1 || serviceRating > 5) {
-        alert("Please provide a valid rating between 1 and 5.");
-        return;
-    }
-
-    document.getElementById("feedbackResult").innerHTML = `
-        Thank you for your feedback!<br>
-        Waiter: ${waiterName || "N/A"}<br>
-        Rating: ${serviceRating}/5<br>
-        Comments: ${comments}
+    resultDiv.innerHTML = `
+        <p>Gratuity (Tip): $${gratuity.toFixed(2)}</p>
+        <p>Total Amount (Bill + Tip): $${totalAmount.toFixed(2)}</p>
     `;
 
-    document.getElementById("feedbackForm").reset();
+    // Show the payment option
+    document.getElementById('paymentForm').style.display = 'block';
+}
+
+// Process Online Payment
+function processOnlinePayment() {
+    alert('Payment successfully processed!');
+}
+
+// Submit Feedback
+function submitFeedback() {
+    const waiterName = document.getElementById('waiterName').value;
+    const serviceRating = document.getElementById('serviceRating').value;
+    const comments = document.getElementById('comments').value;
+    const feedbackResult = document.getElementById('feedbackResult');
+
+    // Validate inputs
+    if (!serviceRating || !comments) {
+        feedbackResult.innerHTML = 'Please provide a rating and comments.';
+        return;
+    }
+
+    // Display feedback result
+    feedbackResult.innerHTML = `Thank you for your feedback! You rated the service: ${serviceRating}/5.`;
 }
